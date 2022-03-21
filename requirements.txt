@@ -1,4 +1,4 @@
-djangorestframework
+django
 djangorestframework
 psycopg2
 python-dotenv
