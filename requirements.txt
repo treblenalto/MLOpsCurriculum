@@ -1,0 +1,4 @@
+djangorestframework
+djangorestframework
+psycopg2
+python-dotenv
