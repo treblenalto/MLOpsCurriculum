@@ -1,6 +1,5 @@
 # Byte-compiled files
 __pycache__/
 
-# Secret keys 
-secret.py
-
+# variables
+.env

@@ -73,10 +73,11 @@ POST /user
 
 #### Response
 
-| Name    | Type | Description           |
-| :------ | :--- | :-------------------- |
-| success | bool | success indicator     |
-| message | str  | success/error message |
+| Name | Type | Description |
+| :--- | :--- | :---------- |
+| id   | int  | user id     |
+| name | str  | user name   |
+| age  | int  | user age    |
 
 #### Status Code
 
@@ -102,10 +103,11 @@ PUT /user/<id:int>
 
 #### Response
 
-| Name    | Type | Description           |
-| :------ | :--- | :-------------------- |
-| success | bool | success indicator     |
-| message | str  | success/error message |
+| Name | Type | Description |
+| :--- | :--- | :---------- |
+| id   | int  | user id     |
+| name | str  | user name   |
+| age  | int  | user age    |
 
 #### Status Code
 
@@ -130,10 +132,11 @@ DELETE /user/<id:int>
 
 #### Response
 
-| Name    | Type | Description           |
-| :------ | :--- | :-------------------- |
-| success | bool | success indicator     |
-| message | str  | success/error message |
+| Name | Type | Description |
+| :--- | :--- | :---------- |
+| id   | int  | user id     |
+| name | str  | user name   |
+| age  | int  | user age    |
 
 #### Status Code
 
