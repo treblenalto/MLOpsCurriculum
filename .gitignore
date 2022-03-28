@@ -3,3 +3,9 @@ __pycache__/
 
 # variables
 .env
+
+# practice files
+hello-docker/
+
+# database
+data/*
