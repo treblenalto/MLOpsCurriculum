@@ -11,4 +11,8 @@ RUN pip install -r requirements.txt
 COPY ./src/ /app
 WORKDIR /app
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# copy docker-entrypoint.sh
+COPY ./docker-entrypoint.sh ./docker-entrypoint.sh
+
+# run docker-entrypoint.sh
+ENTRYPOINT ["bash", "docker-entrypoint.sh"]
