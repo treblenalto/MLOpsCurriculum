@@ -9,3 +9,6 @@ hello-docker/
 
 # database
 data/*
+
+# settings
+settings.py
