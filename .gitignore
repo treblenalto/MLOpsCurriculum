@@ -12,3 +12,6 @@ data/*
 
 # settings
 settings.py
+
+# miscellaneous
+.DS_Store
