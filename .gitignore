@@ -1,8 +1,10 @@
 # Byte-compiled files
 __pycache__/
 
-# variables
+# secret
 .env
+aws-pw.zip
+aws-pw/
 
 # practice files
 hello-docker/
