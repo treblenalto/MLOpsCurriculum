@@ -13,8 +13,6 @@ services:
       - "${BACKEND_PORT}:8000"
     env_file:
       - .env
-    volumes:
-      - .:/app/src
     depends_on:
       - postgres
     links:
@@ -28,10 +26,8 @@ services:
       POSTGRES_USER: "${DB_USER}"
       POSTGRES_PASSWORD: "${DB_PASSWORD}"
       POSTGRES_DB: "${DB_NAME}"
-    # ports:
-    #   - "${DB_PORT}:5432"
-    # expose: 
-    #   - "${DB_PORT}"
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
     volumes:
       - "${DB_VOLUME}:/var/lib/postgresql/data"
     env_file: 
