@@ -9,12 +9,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    entrypoint: ["bash", "docker-entrypoint.sh"]
     ports:
       - "${BACKEND_PORT}:8000"
     env_file:
       - .env
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     links:
       - postgres
 
@@ -30,5 +32,10 @@ services:
       - "${DB_PORT}:${DB_PORT}"
     volumes:
       - "${DB_VOLUME}:/var/lib/postgresql/data"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     env_file: 
       - .env
