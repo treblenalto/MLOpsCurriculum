@@ -15,5 +15,8 @@ data/*
 # settings
 settings.py
 
+# logs
+nohup.out
+
 # miscellaneous
 .DS_Store
