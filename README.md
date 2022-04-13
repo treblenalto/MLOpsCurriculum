@@ -1,6 +1,6 @@
 # MLOps Curriculum
 
-I'm an engineer at corca :whale:!
+I'm an engineer at Corca :whale:!
 
 ---
 
