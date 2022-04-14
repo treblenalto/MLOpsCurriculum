@@ -1,6 +1,6 @@
 # MLOps Curriculum
 
-I'm an engineer at Corca :whale:!
+I'm an engineer at Corca!
 
 ---
 
@@ -12,7 +12,7 @@ I'm an engineer at Corca :whale:!
 ### Summary
 
 <details>
-<summary>RESTful한 API에 대해 공부 후 CRUD API를 개발, DB와 연결한 후 Docker를 사용해 AWS EC2와 ECS로 배포한다.</summary>
+<summary>RESTful한 API에 대해 공부 후 CRUD API를 개발, DB와 연결, Docker를 사용해 AWS EC2와 ECS로 배포한다.</summary>
 <p>
 
 | Course                  | :balloon:                                                |
