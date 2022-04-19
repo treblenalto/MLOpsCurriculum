@@ -17,7 +17,7 @@
 #### URI
 
 ```
-GET /user
+GET /users
 ```
 
 #### Response
@@ -37,7 +37,7 @@ List[
 #### URI
 
 ```
-GET /user/<id:int>
+GET /users/<id:int>
 ```
 
 #### Parameter
@@ -61,7 +61,7 @@ TypedDict{
 #### URI
 
 ```
-POST /user
+POST /users
 ```
 
 #### Parameter
@@ -91,7 +91,7 @@ POST /user
 #### URI
 
 ```
-PUT /user/<id:int>
+PUT /users/<id:int>
 ```
 
 #### Parameter
@@ -121,7 +121,7 @@ PUT /user/<id:int>
 #### URI
 
 ```
-DELETE /user/<id:int>
+DELETE /users/<id:int>
 ```
 
 #### Parameter
