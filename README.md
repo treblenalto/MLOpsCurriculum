@@ -2,6 +2,56 @@
 
 I'm an engineer at Corca!
 
+## API
+
+Simple CRUD API handling user's name and age data made with django and postgresql<br>
+[Documentation](https://github.com/Taehee-K/MLOpsCurriculum/tree/main/src)
+
+- Get all users: `GET /users`
+- Get a user: `GET /users/<id:int>`
+- Create a user: `POST /users`
+- Update a user: `PUT /users/<id:int>`
+- Delete a user: `DELETE /users/<id:int>`
+
+## Usage
+
+### Installation
+
+```
+git clone https://github.com/Taehee-K/MLOpsCurriculum.git
+cd MLOpsCurriculum
+pip install -r requirements.txt
+```
+
+### Local
+
+```
+cd src
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
+```
+
+Run using docker
+
+```
+docker compose up
+```
+
+Test
+
+```
+pytest
+```
+
+### ECS
+
+```
+docker context create ecs mlopscurriculum
+docker context use mlopscurriculum
+docker compose --file docker-compose-ecs.yml up
+```
+
 ---
 
 ## Phase1
