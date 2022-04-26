@@ -11,14 +11,8 @@ def test_get_user_list(api_client, test_user, user_1, user_2):
     assert isinstance(data, list)
     assert len(data) == 3
     assert data[0]["id"] == test_user.id, "id is not correct"
-    assert data[0]["name"] == test_user.name, "name is not correct"
-    assert data[0]["age"] == test_user.age, "age is not correct"
     assert data[1]["id"] == user_1.id, "id is not correct"
-    assert data[1]["name"] == user_1.name, "name is not correct"
-    assert data[1]["age"] == user_1.age, "age is not correct"
     assert data[2]["id"] == user_2.id, "id is not correct"
-    assert data[2]["name"] == user_2.name, "name is not correct"
-    assert data[2]["age"] == user_2.age, "age is not correct"
 
 
 # get a user
@@ -40,55 +34,45 @@ def test_get_user_detail_invalid_id(api_client):
     ), "status code is not correct"
 
 
-# create(post) a user
-def test_post_user(api_client):
-    request_data = {"name": "Namethree", "age": 23}
+# create a user
+@pytest.mark.parametrize(
+    "request_data, expected_status_code",
+    [
+        # post a user
+        pytest.param(
+            {"name": "Namethree", "age": 23},
+            status.HTTP_201_CREATED,
+            id="post: valid request",
+        ),
+        # post a user with no age - nullable
+        pytest.param(
+            {"name": "Noage"},
+            status.HTTP_201_CREATED,
+            id="post: valid request with no age",
+        ),
+        # post a user with negative age
+        pytest.param(
+            {"name": "Negativeage", "age": -1},
+            status.HTTP_400_BAD_REQUEST,
+            id="post: invalid request with negative age",
+        ),
+        # post a user with no name
+        pytest.param(
+            {"age": 23},
+            status.HTTP_400_BAD_REQUEST,
+            id="post: invalid request with no name",
+        ),
+    ],
+)
+def test_post(api_client, request_data, expected_status_code):
     response = api_client.post(
         reverse_lazy("user-list"), data=request_data, format="json"
     )
-    assert response.status_code == status.HTTP_201_CREATED, "status code is not correct"
-
-    response_data = response.data
-    for key, values in request_data.items():
-        assert response_data[key] == values, f"{key} is not correct"
-
-
-# create a user with no age - age nullable
-def test_post_user_no_age(api_client):
-    request_data = {"name": "Noage"}
-    response = api_client.post(
-        reverse_lazy("user-list"), data=request_data, format="json"
-    )
-    assert response.status_code == status.HTTP_201_CREATED, "status code is not correct"
-    response_data = response.data
-    for key, values in response_data.items():
-        assert response_data[key] == values, f"{key} is not correct"
-
-
-# create a user with negative age
-def test_post_user_negative_age(api_client):
-    request_data = {"name": "Negativeage", "age": -1}
-    response = api_client.post(
-        reverse_lazy("user-list"), data=request_data, format="json"
-    )
-    assert (
-        response.status_code == status.HTTP_400_BAD_REQUEST
-    ), "status code is not correct"
-    response_data = response.data
-    assert isinstance(response_data, dict)
-
-
-# create a user with no name
-def test_post_user_no_name(api_client):
-    request_data = {"age": 23}
-    response = api_client.post(
-        reverse_lazy("user-list"), data=request_data, format="json"
-    )
-    assert (
-        response.status_code == status.HTTP_400_BAD_REQUEST
-    ), "status code is not correct"
-    response_data = response.data
-    assert isinstance(response_data, dict)
+    assert response.status_code == expected_status_code, "status code is not correct"
+    if status.is_success(response.status_code):
+        response_data = response.data
+        for key, values in request_data.items():
+            assert response_data[key] == values, f"{key} is not correct"
 
 
 # update a user
