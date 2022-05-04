@@ -5,9 +5,8 @@ ENV PYTHONUNBUFFERED=1
 
 # install dependencies
 RUN apt-get update \
-    && apt-get -y install libpq-dev gcc \
-    && pip install psycopg2
-    
+    && apt-get -y install libpq-dev gcc 
+
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt 
 
