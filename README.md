@@ -49,14 +49,7 @@ docker compose --file docker-compose-ecs.yml up
 ## Testing
 
 ### Functional
-Unit test
-
-```
-cd src
-python manage.py test
-```
-
-End to End Test
+Unit-test & End-to-end test
 
 ```
 pytest
