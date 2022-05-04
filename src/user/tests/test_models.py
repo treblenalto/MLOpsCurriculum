@@ -1,8 +1,8 @@
 from django.test import TestCase
 from rest_framework import serializers
 
-from .models import User
-from .serializers import UserSerializer
+from user.models import User
+from user.serializers import UserSerializer
 
 
 class UserTestCase(TestCase):
