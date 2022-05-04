@@ -48,21 +48,22 @@ docker compose --file docker-compose-ecs.yml up
 
 ## Testing
 
-### Unit Test
+### Functional
+Unit test
 
 ```
 cd src
 python manage.py test
 ```
 
-### End to End Test
+End to End Test
 
 ```
 pytest
 ```
 
-### Performance Test
-[Report on EC2 and ECS](./assignments/performance.md)
+### Non-functional
+[Report on EC2 and ECS Performance test](./assignments/performance.md)
 ```
 cd performance
 locust -f locustfile.py
