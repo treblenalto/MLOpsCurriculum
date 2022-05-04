@@ -38,18 +38,34 @@ Run using docker
 docker compose up
 ```
 
-Test
-
-```
-pytest
-```
-
 ### ECS
 
 ```
 docker context create ecs mlopscurriculum
 docker context use mlopscurriculum
 docker compose --file docker-compose-ecs.yml up
+```
+
+## Testing
+
+### Unit Test
+
+```
+cd src
+python manage.py test
+```
+
+### End to End Test
+
+```
+pytest
+```
+
+### Performance Test
+[Report on EC2 and ECS](./assignments/performance.md)
+```
+cd performance
+locust -f locustfile.py
 ```
 
 ---
