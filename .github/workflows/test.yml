@@ -27,6 +27,7 @@ jobs:
       # run migrations
       - name: Run migrations
         run: |
+          cd src
           python manage.py migrate
       # unit test & end to end test
       - name: Test with pytest
@@ -34,5 +35,4 @@ jobs:
           SECRET_KEY: ${{secrets.SECRET_KEY}}
           DB_NAME: ${{secrets.DB_NAME}}
         run: |
-          cd src
           python manage.py test user.tests.test_views
