@@ -24,10 +24,15 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+      # run migrations
+      - name: Run migrations
+        run: |
+          python manage.py migrate
       # unit test & end to end test
       - name: Test with pytest
         env:
           SECRET_KEY: ${{secrets.SECRET_KEY}}
           DB_NAME: ${{secrets.DB_NAME}}
         run: |
-          pytest
+          cd src
+          python manage.py test user.tests.test_views
