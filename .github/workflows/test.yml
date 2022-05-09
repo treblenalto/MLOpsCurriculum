@@ -1,6 +1,6 @@
 name: CI-Testing
 
-on: [push]
+on: [pull-request]
 
 jobs:
   build:
