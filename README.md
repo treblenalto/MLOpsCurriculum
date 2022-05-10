@@ -20,7 +20,8 @@ Simple CRUD API handling user's name and age data made with django and postgresq
 ```
 git clone https://github.com/Taehee-K/MLOpsCurriculum.git
 cd MLOpsCurriculum
-pip install -r requirements.txt
+pip install -r requirements.txt     # when using pip
+conda env create -f packagelist.yml # when using conda
 ```
 
 ### Local
